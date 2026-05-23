@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Official website of AEMCiCD, a nonprofit student organization at Yachay Tech University."
+  />
+  <title>AEMCiCD | Student Nonprofit Organization</title>
+
+  <style>
+    :root {
+      --primary: #f43f3a;
+      --primary-dark: #c92e2a;
+      --navy: #0f2f5f;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --soft-red: #fff1f1;
+      --soft-blue: #eff6ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .topbar {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .topbar-inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--navy));
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 1rem;
+      color: var(--navy);
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.92rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--primary-dark);
+    }
+
+    .hero {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 72px 0 42px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--soft-red);
+      color: var(--primary-dark);
+      font-size: 0.86rem;
+      font-weight: 700;
+      border: 1px solid #ffd4d4;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      line-height: 1.05;
+      margin: 20px 0 18px;
+      color: var(--navy);
+      letter-spacing: -0.05em;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 24px 80px rgba(15, 47, 95, 0.08);
+    }
+
+    .hero-card h2 {
+      margin-top: 0;
+      color: var(--navy);
+      font-size: 1.35rem;
+    }
+
+    .fact {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fact:last-child {
+      border-bottom: 0;
+    }
+
+    .fact span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .fact strong {
+      display: block;
+      margin-top: 3px;
+      color: var(--text);
+    }
+
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding-bottom: 64px;
+    }
+
+    section {
+      margin-top: 28px;
+    }
+
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 30px;
+    }
+
+    h2 {
+      color: var(--navy);
+      margin: 0 0 14px;
+      font-size: 1.75rem;
+      letter-spacing: -0.03em;
+    }
+
+    h3 {
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .mini-card {
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .mini-card strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .mini-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .project {
+      background: linear-gradient(135deg, var(--soft-blue), #ffffff);
+      border: 1px solid #bfdbfe;
+      border-radius: 24px;
+      padding: 24px;
+      margin-top: 18px;
+    }
+
+    .project-label {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: var(--navy);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    ul {
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 34px 0;
+    }
+
+    .footer-inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 0.92rem;
+    }
+
+    .footer strong {
+      color: white;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 48px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">A</div>
+        <div class="brand-text">
+          <strong>AEMCiCD</strong>
+          <span>Mathematics, Computer Science & Data Science Students</span>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#mission">Mission</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div>
+      <span class="badge">Registered nonprofit student organization</span>
+
+      <h1>Student representation, academic community, and digital governance.</h1>
+
+      <p>
+        The Asociación de Estudiantes de Matemática, Ciencias Computacionales y Ciencia
+        de Datos de la Universidad Yachay Tech (AEMCiCD) is a legally registered
+        nonprofit student organization based in Urcuquí, Imbabura, Ecuador.
+      </p>
+    </div>
+
+    <aside class="hero-card" aria-label="Legal information">
+      <h2>Legal information</h2>
+
+      <div class="fact">
+        <span>Organization</span>
+        <strong>Asociación de Estudiantes de Matemática, Ciencias Computacionales y Ciencia de Datos de la Universidad Yachay Tech</strong>
+      </div>
+
+      <div class="fact">
+        <span>Abbreviation</span>
+        <strong>AEMCiCD</strong>
+      </div>
+
+      <div class="fact">
+        <span>Registration</span>
+        <strong>Resolution No. MINEDEC-CZ1-2026-00566-R</strong>
+      </div>
+
+      <div class="fact">
+        <span>SUIOS Code</span>
+        <strong>0000146391</strong>
+      </div>
+
+      <div class="fact">
+        <span>Legal Representative</span>
+        <strong>Edwin Ezequiel Hurtado Almeida</strong>
+      </div>
+    </aside>
+  </div>
+
+  <main>
+    <section id="about" class="section-card">
+      <h2>About AEMCiCD</h2>
+
+      <p>
+        AEMCiCD represents and supports students in Mathematics, Computer Science, and
+        Data Science at Yachay Tech University. The association promotes academic,
+        scientific, cultural, social, and student-representation activities.
+      </p>
+
+      <p>
+        AEMCiCD was granted legal personality by the Ministry of Education, Sports and
+        Culture of Ecuador and is registered in the Unified System of Social Organizations
+        (SUIOS). The association is organized as an autonomous nonprofit student
+        organization with educational and social purposes.
+      </p>
+    </section>
+
+    <section id="mission" class="section-card">
+      <h2>Mission</h2>
+
+      <p>
+        Our mission is to strengthen student participation, academic development,
+        community building, institutional transparency, and democratic governance within
+        the student community of Mathematics, Computer Science, and Data Science.
+      </p>
+
+      <div class="grid">
+        <div class="mini-card">
+          <strong>Student representation</strong>
+          <p>
+            We represent student interests before internal and external authorities and
+            promote dialogue around academic and institutional needs.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <strong>Academic development</strong>
+          <p>
+            We promote talks, workshops, study groups, conferences, and scientific
+            activities related to mathematics and computing.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <strong>Digital governance</strong>
+          <p>
+            We develop and maintain tools that support transparent elections,
+            assemblies, records, documents, and institutional participation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section-card">
+      <h2>Technology projects</h2>
+
+      <p>
+        AEMCiCD uses technology to support nonprofit, educational, and institutional
+        activities. Our GitHub organization is used to host and maintain projects that
+        strengthen student governance, transparency, and participation.
+      </p>
+
+      <div class="project">
+        <span class="project-label">Main project</span>
+
+        <h3>Votia — Digital governance and elections platform</h3>
+
+        <p>
+          Votia is a digital platform developed to support student organizations with
+          secure elections, assemblies, attendance registration, voting, minutes,
+          resolutions, document archives, and transparency workflows.
+        </p>
+
+        <ul>
+          <li>Digital election process management.</li>
+          <li>Attendance and quorum registration for assemblies.</li>
+          <li>Voting workflows for governance sessions.</li>
+          <li>Minutes, resolutions, and document archive support.</li>
+          <li>Transparency and institutional continuity for student organizations.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2>Use of GitHub</h2>
+
+      <p>
+        We use GitHub to organize software development, documentation, issue tracking,
+        code review, and continuity of nonprofit technology projects. GitHub helps us
+        preserve institutional ownership of projects even when student leaders graduate
+        or change roles.
+      </p>
+
+      <ul>
+        <li>Repository hosting for nonprofit technology projects.</li>
+        <li>Issue tracking and technical roadmap management.</li>
+        <li>Code review, branch protection, and secure collaboration.</li>
+        <li>Continuous integration and deployment workflows.</li>
+        <li>Technical documentation and long-term project continuity.</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="section-card">
+      <h2>Contact</h2>
+
+      <p>
+        For institutional or project-related inquiries, please contact:
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:asoemc@yachaytech.edu.ec">asoemc@yachaytech.edu.ec</a>
+      </p>
+
+      <p>
+        <strong>Location:</strong>
+        Via Yachay s/n, Campus Universitario, Universidad Yachay Tech,
+        Urcuquí, Imbabura, Ecuador.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <strong>AEMCiCD</strong><br />
+        Asociación de Estudiantes de Matemática, Ciencias Computacionales y Ciencia de Datos.
+      </div>
+
+      <div>
+        Registered nonprofit student organization · Ecuador<br />
+        SUIOS Code: 0000146391
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
