@@ -1,0 +1,35 @@
+# Archivos privados o de trabajo
+privado/
+private/
+originales/
+raw/
+borradores/
+drafts/
+
+# Documentos editables o fuentes no públicas
+*.docx
+*.pages
+*.odt
+*.zip
+*.rar
+*.7z
+
+# Archivos de diseño
+*.psd
+*.ai
+*.fig
+*.sketch
+
+# Archivos potencialmente sensibles
+*cedula*
+*cédula*
+*firma*
+*privado*
+*private*
+*original*
+*confidencial*
+*confidential*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
