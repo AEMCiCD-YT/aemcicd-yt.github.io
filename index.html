@@ -14,7 +14,6 @@
       --primary: #f43f3a;
       --primary-dark: #c92e2a;
       --navy: #0f2f5f;
-      --navy-2: #123b76;
       --text: #1f2937;
       --muted: #6b7280;
       --bg: #f8fafc;
@@ -26,13 +25,8 @@
       --shadow: 0 24px 80px rgba(15, 47, 95, 0.08);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -48,9 +42,7 @@
       font-weight: 700;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
+    a:hover { text-decoration: underline; }
 
     .topbar {
       background: rgba(255, 255, 255, 0.94);
@@ -85,7 +77,7 @@
       background: linear-gradient(135deg, var(--primary), var(--navy));
       display: grid;
       place-items: center;
-      color: white;
+      color: #fff;
       font-weight: 900;
       letter-spacing: -1px;
       box-shadow: 0 12px 28px rgba(244, 63, 58, 0.25);
@@ -93,14 +85,14 @@
 
     .brand-text strong {
       display: block;
-      font-size: 1rem;
       color: var(--navy);
+      font-size: 1rem;
     }
 
     .brand-text span {
       display: block;
-      font-size: 0.78rem;
       color: var(--muted);
+      font-size: 0.78rem;
       line-height: 1.3;
     }
 
@@ -117,9 +109,7 @@
       font-weight: 700;
     }
 
-    nav a:hover {
-      color: var(--primary-dark);
-    }
+    nav a:hover { color: var(--primary-dark); }
 
     .hero-wrap {
       background:
@@ -138,16 +128,21 @@
       align-items: center;
     }
 
-    .badge {
+    .badge,
+    .tag,
+    .person-role {
       display: inline-flex;
       align-items: center;
+      border-radius: 999px;
+      font-weight: 800;
+    }
+
+    .badge {
       gap: 8px;
       padding: 7px 13px;
-      border-radius: 999px;
       background: var(--soft-red);
       color: var(--primary-dark);
       font-size: 0.86rem;
-      font-weight: 800;
       border: 1px solid #ffd4d4;
     }
 
@@ -160,8 +155,8 @@
     }
 
     .lead {
-      font-size: 1.12rem;
       color: var(--muted);
+      font-size: 1.12rem;
       max-width: 760px;
     }
 
@@ -169,7 +164,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 28px;
+      margin-top: 24px;
     }
 
     .button {
@@ -197,16 +192,19 @@
       transform: translateY(-1px);
     }
 
-    .hero-card {
+    .hero-card,
+    .section-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 30px;
-      padding: 28px;
       box-shadow: var(--shadow);
     }
 
+    .hero-card {
+      border-radius: 30px;
+      padding: 28px;
+    }
+
     .hero-card h2,
-    .section-card h2,
     .section-title h2 {
       margin-top: 0;
       color: var(--navy);
@@ -219,9 +217,7 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .fact:last-child {
-      border-bottom: 0;
-    }
+    .fact:last-child { border-bottom: 0; }
 
     .fact span {
       display: block;
@@ -250,8 +246,6 @@
     }
 
     .section-card {
-      background: var(--card);
-      border: 1px solid var(--border);
       border-radius: 28px;
       padding: 32px;
       box-shadow: 0 14px 44px rgba(15, 47, 95, 0.045);
@@ -266,9 +260,7 @@
     }
 
     .section-title p,
-    .section-card > p {
-      color: var(--muted);
-    }
+    .section-card > p { color: var(--muted); }
 
     .grid {
       display: grid;
@@ -277,9 +269,7 @@
       margin-top: 20px;
     }
 
-    .grid.two {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .grid.two { grid-template-columns: repeat(2, 1fr); }
 
     .mini-card,
     .person-card,
@@ -321,14 +311,10 @@
     }
 
     .tag {
-      display: inline-flex;
-      align-items: center;
-      border-radius: 999px;
       padding: 5px 10px;
       background: var(--soft-blue);
       color: var(--navy);
       font-size: 0.78rem;
-      font-weight: 800;
       margin-bottom: 12px;
     }
 
@@ -376,9 +362,7 @@
     }
 
     .person-role {
-      display: inline-block;
       padding: 5px 10px;
-      border-radius: 999px;
       background: var(--soft-red);
       color: var(--primary-dark);
       font-size: 0.78rem;
@@ -408,9 +392,7 @@
       color: var(--muted);
     }
 
-    li {
-      margin: 8px 0;
-    }
+    li { margin: 8px 0; }
 
     .timeline {
       display: grid;
@@ -463,35 +445,14 @@
       font-size: 0.92rem;
     }
 
-    .footer strong {
-      color: white;
-    }
+    .footer strong { color: white; }
 
     @media (max-width: 960px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding-top: 54px;
-      }
-
-      .grid,
-      .grid.two,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .timeline-card {
-        grid-template-columns: 1fr;
-      }
-
-      .topbar-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      nav {
-        justify-content: flex-start;
-        gap: 12px;
-      }
+      .hero { grid-template-columns: 1fr; padding-top: 54px; }
+      .grid, .grid.two, .contact-grid { grid-template-columns: 1fr; }
+      .timeline-card { grid-template-columns: 1fr; }
+      .topbar-inner { align-items: flex-start; flex-direction: column; }
+      nav { justify-content: flex-start; gap: 12px; }
     }
   </style>
 </head>
@@ -523,16 +484,13 @@
     <div class="hero">
       <div>
         <span class="badge">Organización estudiantil sin fines de lucro</span>
-
         <h1>Representación estudiantil, comunidad académica y gobernanza digital.</h1>
-
         <p class="lead">
           La Asociación de Estudiantes de Matemática, Ciencias Computacionales y Ciencia
           de Datos de la Universidad Yachay Tech (AEMCiCD) representa, acompaña y fortalece
           a su comunidad estudiantil mediante actividades académicas, sociales, científicas,
           tecnológicas e institucionales.
         </p>
-
         <div class="hero-actions">
           <a class="button primary" href="#about">Conoce la asociación</a>
           <a class="button" href="#projects">Ver proyectos</a>
@@ -542,27 +500,22 @@
 
       <aside class="hero-card" aria-label="Información legal">
         <h2>Información institucional</h2>
-
         <div class="fact">
           <span>Nombre legal</span>
           <strong>Asociación de Estudiantes de Matemática, Ciencias Computacionales y Ciencia de Datos de la Universidad Yachay Tech</strong>
         </div>
-
         <div class="fact">
           <span>Siglas</span>
           <strong>AEMCiCD</strong>
         </div>
-
         <div class="fact">
           <span>Registro</span>
           <strong>Resolución Nro. MINEDEC-CZ1-2026-00566-R</strong>
         </div>
-
         <div class="fact">
           <span>Código SUIOS</span>
           <strong>0000146391</strong>
         </div>
-
         <div class="fact">
           <span>Representante legal</span>
           <strong>Edwin Ezequiel Hurtado Almeida</strong>
@@ -579,7 +532,6 @@
           <p>Una organización estudiantil de carácter académico, social y tecnológico.</p>
         </div>
       </div>
-
       <p>
         La AEMCiCD es una organización estudiantil autónoma, sin fines de lucro y con
         personería jurídica en Ecuador. Su ámbito de acción es educacional y su trabajo se
@@ -587,7 +539,6 @@
         promover espacios de participación y desarrollar actividades que fortalezcan la vida
         académica, científica, cultural y social de la comunidad.
       </p>
-
       <p>
         La asociación actúa como un canal de organización estudiantil, diálogo institucional,
         apoyo entre pares, gestión documental, impulso de proyectos y construcción de comunidad.
@@ -603,60 +554,36 @@
           <p>Líneas de acción que guían nuestras actividades y proyectos.</p>
         </div>
       </div>
-
       <div class="grid">
         <div class="mini-card">
           <span class="tag">Académico</span>
           <strong>Charlas, tutorías y formación</strong>
-          <p>
-            Promovemos seminarios, grupos de estudio, tutorías internas, cursos, concursos y
-            espacios de fortalecimiento académico para estudiantes.
-          </p>
+          <p>Promovemos seminarios, grupos de estudio, tutorías internas, cursos, concursos y espacios de fortalecimiento académico para estudiantes.</p>
         </div>
-
         <div class="mini-card">
           <span class="tag">Comunidad</span>
           <strong>Integración y acompañamiento</strong>
-          <p>
-            Impulsamos actividades de convivencia, integración, apoyo entre pares y construcción
-            de redes estudiantiles dentro de la Escuela.
-          </p>
+          <p>Impulsamos actividades de convivencia, integración, apoyo entre pares y construcción de redes estudiantiles dentro de la Escuela.</p>
         </div>
-
         <div class="mini-card">
           <span class="tag">Representación</span>
           <strong>Diálogo institucional</strong>
-          <p>
-            Canalizamos necesidades, propuestas y problemáticas estudiantiles ante instancias
-            internas o externas, conforme a los fines de la asociación.
-          </p>
+          <p>Canalizamos necesidades, propuestas y problemáticas estudiantiles ante instancias internas o externas, conforme a los fines de la asociación.</p>
         </div>
-
         <div class="mini-card">
           <span class="tag">Tecnología</span>
           <strong>Herramientas institucionales</strong>
-          <p>
-            Desarrollamos soluciones digitales para elecciones, gobernanza, actas, resoluciones,
-            documentación y transparencia institucional.
-          </p>
+          <p>Desarrollamos soluciones digitales para elecciones, gobernanza, actas, resoluciones, documentación y transparencia institucional.</p>
         </div>
-
         <div class="mini-card">
           <span class="tag">Eventos</span>
           <strong>Conferencias y encuentros</strong>
-          <p>
-            Organizamos y apoyamos actividades científicas, académicas y culturales que conectan
-            a estudiantes, docentes e instituciones aliadas.
-          </p>
+          <p>Organizamos y apoyamos actividades científicas, académicas y culturales que conectan a estudiantes, docentes e instituciones aliadas.</p>
         </div>
-
         <div class="mini-card">
           <span class="tag">Transparencia</span>
           <strong>Archivo y documentación</strong>
-          <p>
-            Promovemos el orden documental, la trazabilidad de decisiones y la continuidad
-            institucional entre diferentes periodos de representación.
-          </p>
+          <p>Promovemos el orden documental, la trazabilidad de decisiones y la continuidad institucional entre diferentes periodos de representación.</p>
         </div>
       </div>
     </section>
@@ -668,60 +595,36 @@
           <p>Equipos de trabajo que sostienen la gestión ordinaria y los proyectos de la asociación.</p>
         </div>
       </div>
-
       <div class="grid">
         <div class="mini-card">
           <div class="department-icon">AA</div>
           <strong>Asuntos Académicos</strong>
-          <p>
-            Levanta necesidades académicas, articula representantes de carrera y promueve
-            tutorías, charlas, grupos de estudio y actividades de fortalecimiento académico.
-          </p>
+          <p>Levanta necesidades académicas, articula representantes de carrera y promueve tutorías, charlas, grupos de estudio y actividades de fortalecimiento académico.</p>
         </div>
-
         <div class="mini-card">
           <div class="department-icon">AI</div>
           <strong>Asuntos Internos y Externos</strong>
-          <p>
-            Coordina actividades de integración, vínculos con otras organizaciones, colaboración
-            institucional y relacionamiento con actores internos o externos.
-          </p>
+          <p>Coordina actividades de integración, vínculos con otras organizaciones, colaboración institucional y relacionamiento con actores internos o externos.</p>
         </div>
-
         <div class="mini-card">
           <div class="department-icon">TH</div>
           <strong>Talento Humano y Logística</strong>
-          <p>
-            Organiza bases de datos, asistencia, certificados, convocatorias, registros, logística
-            de eventos y documentación operativa de la asociación.
-          </p>
+          <p>Organiza bases de datos, asistencia, certificados, convocatorias, registros, logística de eventos y documentación operativa de la asociación.</p>
         </div>
-
         <div class="mini-card">
           <div class="department-icon">AF</div>
           <strong>Asuntos Financieros</strong>
-          <p>
-            Apoya la administración de recursos, presupuestos, informes económicos, registros
-            financieros y sostenibilidad de actividades institucionales.
-          </p>
+          <p>Apoya la administración de recursos, presupuestos, informes económicos, registros financieros y sostenibilidad de actividades institucionales.</p>
         </div>
-
         <div class="mini-card">
           <div class="department-icon">CO</div>
           <strong>Comunicación</strong>
-          <p>
-            Gestiona imagen institucional, redes sociales, difusión de actividades, recursos de
-            marketing y comunicación pública de la asociación.
-          </p>
+          <p>Gestiona imagen institucional, redes sociales, difusión de actividades, recursos de marketing y comunicación pública de la asociación.</p>
         </div>
-
         <div class="mini-card">
           <div class="department-icon">PR</div>
           <strong>Proyectos y comisiones</strong>
-          <p>
-            La Junta Directiva puede crear equipos o comisiones especiales para ejecutar iniciativas
-            académicas, tecnológicas, sociales o institucionales.
-          </p>
+          <p>La Junta Directiva puede crear equipos o comisiones especiales para ejecutar iniciativas académicas, tecnológicas, sociales o institucionales.</p>
         </div>
       </div>
     </section>
@@ -733,77 +636,36 @@
           <p>Periodo 2026–2027. No se publican números de identificación personal en este sitio.</p>
         </div>
       </div>
-
       <div class="grid">
         <article class="person-card">
-          <img
-            class="person-photo"
-            src="assets/team/edwin-hurtado.jpg"
-            alt="Fotografía de Edwin Ezequiel Hurtado Almeida"
-          />
+          <img class="person-photo" src="assets/team/edwin-hurtado.jpg" alt="Fotografía de Edwin Ezequiel Hurtado Almeida" />
           <span class="person-role">Presidencia</span>
           <h3>Edwin Ezequiel Hurtado Almeida</h3>
-          <p>
-            Representante legal de la AEMCiCD. Coordina la dirección general, preside sesiones,
-            impulsa proyectos institucionales y articula la representación estudiantil ante actores
-            internos y externos.
-          </p>
+          <p>Representante legal de la AEMCiCD. Coordina la dirección general, preside sesiones, impulsa proyectos institucionales y articula la representación estudiantil ante actores internos y externos.</p>
         </article>
-
         <article class="person-card">
-          <img
-            class="person-photo"
-            src="assets/team/ismael-cifuentes.jpg"
-            alt="Fotografía de Ismael Xavier Cifuentes Carvajal"
-          />
+          <img class="person-photo" src="assets/team/ismael-cifuentes.jpg" alt="Fotografía de Ismael Xavier Cifuentes Carvajal" />
           <span class="person-role">Vicepresidencia</span>
           <h3>Ismael Xavier Cifuentes Carvajal</h3>
-          <p>
-            Apoya la coordinación estratégica, el relacionamiento institucional y la supervisión de
-            actividades internas y externas, sustituyendo a Presidencia cuando corresponda.
-          </p>
+          <p>Apoya la coordinación estratégica, el relacionamiento institucional y la supervisión de actividades internas y externas, sustituyendo a Presidencia cuando corresponda.</p>
         </article>
-
         <article class="person-card">
-          <img
-            class="person-photo"
-            src="assets/team/evelyn-crespo.jpg"
-            alt="Fotografía de Evelyn Pamela Crespo Reinoso"
-          />
+          <img class="person-photo" src="assets/team/evelyn-crespo.jpg" alt="Fotografía de Evelyn Pamela Crespo Reinoso" />
           <span class="person-role">Secretaría General</span>
           <h3>Evelyn Pamela Crespo Reinoso</h3>
-          <p>
-            Organiza actas, convocatorias, archivo documental, registros institucionales y soporte
-            legal-documental para la continuidad y trazabilidad de la asociación.
-          </p>
+          <p>Organiza actas, convocatorias, archivo documental, registros institucionales y soporte legal-documental para la continuidad y trazabilidad de la asociación.</p>
         </article>
-
         <article class="person-card">
-          <img
-            class="person-photo"
-            src="assets/team/britany-vargas.jpg"
-            alt="Fotografía de Britany Alejandra Vargas Escanta"
-          />
+          <img class="person-photo" src="assets/team/britany-vargas.jpg" alt="Fotografía de Britany Alejandra Vargas Escanta" />
           <span class="person-role">Tesorería</span>
           <h3>Britany Alejandra Vargas Escanta</h3>
-          <p>
-            Gestiona registros financieros, presupuestos, custodia de recursos, informes económicos
-            y sostenibilidad operativa de actividades y proyectos institucionales.
-          </p>
+          <p>Gestiona registros financieros, presupuestos, custodia de recursos, informes económicos y sostenibilidad operativa de actividades y proyectos institucionales.</p>
         </article>
-
         <article class="person-card">
-          <img
-            class="person-photo"
-            src="assets/team/dylan-bermudez.jpg"
-            alt="Fotografía de Dylan Justin Bermúdez Díaz"
-          />
+          <img class="person-photo" src="assets/team/dylan-bermudez.jpg" alt="Fotografía de Dylan Justin Bermúdez Díaz" />
           <span class="person-role">Comunicación</span>
           <h3>Dylan Justin Bermúdez Díaz</h3>
-          <p>
-            Coordina la imagen pública, difusión de actividades, redes sociales, piezas gráficas y
-            comunicación institucional hacia estudiantes, aliados y comunidad externa.
-          </p>
+          <p>Coordina la imagen pública, difusión de actividades, redes sociales, piezas gráficas y comunicación institucional hacia estudiantes, aliados y comunidad externa.</p>
         </article>
       </div>
     </section>
@@ -815,28 +677,19 @@
           <p>Registro público de continuidad institucional.</p>
         </div>
       </div>
-
       <div class="timeline">
         <div class="timeline-card">
           <div class="period">2026–2027</div>
           <div>
             <strong>Directiva presidida por Edwin Ezequiel Hurtado Almeida</strong>
-            <p>
-              Periodo de formalización jurídica, fortalecimiento documental, consolidación de
-              Votia como proyecto institucional y organización de nuevas líneas de actividades
-              académicas, tecnológicas y comunitarias.
-            </p>
+            <p>Periodo de formalización jurídica, fortalecimiento documental, consolidación de Votia como proyecto institucional y organización de nuevas líneas de actividades académicas, tecnológicas y comunitarias.</p>
           </div>
         </div>
-
         <div class="timeline-card">
           <div class="period">Periodos previos</div>
           <div>
             <strong>Información en sistematización documental</strong>
-            <p>
-              La asociación se encuentra organizando su archivo histórico para publicar, cuando
-              corresponda, información verificada sobre directivas, proyectos e hitos anteriores.
-            </p>
+            <p>La asociación se encuentra organizando su archivo histórico para publicar, cuando corresponda, información verificada sobre directivas, proyectos e hitos anteriores.</p>
           </div>
         </div>
       </div>
@@ -849,45 +702,28 @@
           <p>Iniciativas impulsadas o acompañadas por la asociación.</p>
         </div>
       </div>
-
       <div class="grid two">
         <div class="project-card">
           <span class="tag">Gobernanza digital</span>
           <strong>Votia</strong>
-          <p>
-            Plataforma institucional para elecciones digitales, gobernanza, asambleas, sesiones de
-            junta directiva, asistencia, votaciones, actas, resoluciones y archivo documental.
-          </p>
+          <p>Plataforma institucional para elecciones digitales, gobernanza, asambleas, sesiones de junta directiva, asistencia, votaciones, actas, resoluciones y archivo documental.</p>
         </div>
-
         <div class="project-card">
           <span class="tag">Comunidad</span>
           <strong>Punto de Encuentro AEMCiCD</strong>
-          <p>
-            Espacio de encuentro, estudio, integración y apoyo entre estudiantes de distintas
-            carreras y semestres.
-          </p>
+          <p>Espacio de encuentro, estudio, integración y apoyo entre estudiantes de distintas carreras y semestres.</p>
         </div>
-
         <div class="project-card">
           <span class="tag">Académico</span>
           <strong>Charlas, seminarios y tutorías</strong>
-          <p>
-            Actividades de divulgación, acompañamiento académico y fortalecimiento de habilidades
-            en matemática, computación y ciencia de datos.
-          </p>
+          <p>Actividades de divulgación, acompañamiento académico y fortalecimiento de habilidades en matemática, computación y ciencia de datos.</p>
         </div>
-
         <div class="project-card">
           <span class="tag">Eventos</span>
           <strong>Encuentros y congresos</strong>
-          <p>
-            Iniciativas orientadas a conectar estudiantes, docentes, asociaciones, instituciones y
-            comunidades académicas nacionales o internacionales.
-          </p>
+          <p>Iniciativas orientadas a conectar estudiantes, docentes, asociaciones, instituciones y comunidades académicas nacionales o internacionales.</p>
         </div>
       </div>
-
       <div class="project-highlight">
         <span class="tag">Proyecto principal</span>
         <h3>Votia — Gobernanza y elecciones digitales</h3>
@@ -911,13 +747,11 @@
           <p>Espacio para colaboración académica, tecnológica, social e institucional.</p>
         </div>
       </div>
-
       <p>
         La AEMCiCD mantiene abierta la posibilidad de colaborar con instituciones académicas,
         organizaciones estudiantiles, empresas, fundaciones y actores externos interesados en apoyar
         actividades académicas, científicas, culturales, sociales y tecnológicas.
       </p>
-
       <div class="notice">
         Esta sección se encuentra en construcción. Próximamente se publicarán aliados,
         auspiciantes o patrocinadores institucionales debidamente aprobados y verificados.
@@ -932,102 +766,40 @@
         </div>
       </div>
 
+      <div class="notice">
+        Por protección de datos personales, no se publican documentos completos que contengan
+        números de cédula, correos personales o datos sensibles de directivos. La resolución de
+        personería jurídica y el oficio de registro de directiva pueden solicitarse por canales
+        institucionales cuando exista una finalidad legítima.
+      </div>
+
       <div class="grid two">
         <div class="doc-card">
-          <strong>Personería jurídica</strong>
-          <p>
-            AEMCiCD cuenta con personería jurídica concedida mediante Resolución Nro.
-            MINEDEC-CZ1-2026-00566-R.
-          </p>
+          <strong>Registro SUIOS</strong>
+          <p>Constancia de registro de la organización en el Sistema Unificado de Información de Organizaciones Sociales.</p>
           <div class="hero-actions">
-            <a
-              class="button"
-              href="assets/docs/acuerdo-ministerial-personeria-juridica.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Ver documento
-            </a>
+            <a class="button" href="assets/docs/constancia-suios.pdf" target="_blank" rel="noreferrer">Ver constancia</a>
           </div>
         </div>
-
-        <div class="doc-card">
-          <strong>Directiva vigente</strong>
-          <p>
-            Oficio de aprobación y registro de la directiva de la AEMCiCD para el periodo
-            2026–2027.
-          </p>
-          <div class="hero-actions">
-            <a
-              class="button"
-              href="assets/docs/oficio-registro-directiva-2026-2027.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Ver documento
-            </a>
-          </div>
-        </div>
-
         <div class="doc-card">
           <strong>Estatuto institucional</strong>
-          <p>
-            Documento estatutario que regula la organización, fines, estructura y funcionamiento
-            general de la AEMCiCD.
-          </p>
+          <p>Documento estatutario que regula la organización, fines, estructura y funcionamiento general de la AEMCiCD.</p>
           <div class="hero-actions">
-            <a
-              class="button"
-              href="assets/docs/estatuto-aemcicd.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Ver estatuto
-            </a>
+            <a class="button" href="assets/docs/estatuto-aemcicd.pdf" target="_blank" rel="noreferrer">Ver estatuto</a>
           </div>
         </div>
-
         <div class="doc-card">
           <strong>Reglamento interno</strong>
-          <p>
-            Normativa interna complementaria para la organización, operación y gestión
-            institucional de la asociación.
-          </p>
+          <p>Normativa interna complementaria para la organización, operación y gestión institucional de la asociación.</p>
           <div class="hero-actions">
-            <a
-              class="button"
-              href="assets/docs/reglamento-interno-aemcicd.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Ver reglamento
-            </a>
+            <a class="button" href="assets/docs/reglamento-interno-aemcicd.pdf" target="_blank" rel="noreferrer">Ver reglamento</a>
           </div>
         </div>
-
         <div class="doc-card">
-          <strong>Registro SUIOS</strong>
+          <strong>Documentos no publicados</strong>
           <p>
-            Constancia de registro de la organización en el Sistema Unificado de Información
-            de Organizaciones Sociales.
-          </p>
-          <div class="hero-actions">
-            <a
-              class="button"
-              href="assets/docs/constancia-suios.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Ver constancia
-            </a>
-          </div>
-        </div>
-
-        <div class="doc-card">
-          <strong>Archivo institucional</strong>
-          <p>
-            La AEMCiCD promueve la organización de actas, resoluciones, informes y documentos
-            públicos revisados para fortalecer la rendición de cuentas.
+            La personería jurídica y el registro de directiva se referencian de forma informativa,
+            pero no se publican como PDF completo por contener datos personales de la directiva.
           </p>
         </div>
       </div>
@@ -1040,20 +812,14 @@
           <p>Canales institucionales para consultas, colaboración y comunicación pública.</p>
         </div>
       </div>
-
       <div class="contact-grid">
         <div class="doc-card">
           <strong>Correo institucional</strong>
-          <p>
-            <a href="mailto:asoemc@yachaytech.edu.ec">asoemc@yachaytech.edu.ec</a>
-          </p>
+          <p><a href="mailto:asoemc@yachaytech.edu.ec">asoemc@yachaytech.edu.ec</a></p>
         </div>
-
         <div class="doc-card">
           <strong>Ubicación referencial</strong>
-          <p>
-            Vía Yachay s/n, Campus Universitario, Universidad Yachay Tech, Urcuquí, Imbabura, Ecuador.
-          </p>
+          <p>Vía Yachay s/n, Campus Universitario, Universidad Yachay Tech, Urcuquí, Imbabura, Ecuador.</p>
         </div>
       </div>
     </section>
@@ -1065,7 +831,6 @@
         <strong>AEMCiCD</strong><br />
         Asociación de Estudiantes de Matemática, Ciencias Computacionales y Ciencia de Datos.
       </div>
-
       <div>
         Organización estudiantil sin fines de lucro · Ecuador<br />
         Código SUIOS: 0000146391
