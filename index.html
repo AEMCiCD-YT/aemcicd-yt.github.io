@@ -6,6 +6,7 @@
   <meta name="description" content="Sitio oficial de la Asociación de Estudiantes de Matemática, Ciencias Computacionales y Ciencia de Datos de la Universidad Yachay Tech (AEMCiCD)." />
   <title>AEMCiCD | Asociación de Estudiantes</title>
   <link rel="stylesheet" href="assets/css/site.css" />
+  <script src="assets/js/site.js" defer></script>
 </head>
 
 <body>
@@ -16,7 +17,11 @@
         <img class="brand-logo" src="assets/brand/logo-aemcicd-rojo.png" alt="AEMCiCD, Asociación de Estudiantes de Matemática, Ciencias Computacionales y Ciencia de Datos" width="180" height="54" />
       </a>
 
-      <nav aria-label="Navegación principal">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Abrir menú principal">
+        <span>Menú</span><span class="nav-toggle-icon" aria-hidden="true"><span></span></span>
+      </button>
+
+      <nav id="site-navigation" aria-label="Navegación principal">
         <a href="./" aria-current="page">Inicio</a>
         <a href="nosotros/">Nosotros</a>
         <a href="directiva/">Directiva</a>
@@ -212,7 +217,7 @@
       <div>
         Organización estudiantil sin fines de lucro · Ecuador<br />
         RUC: 1091799923001 · SUIOS: 0000146391<br />
-        Última actualización: 29 de julio de 2026
+        Última actualización: <time data-site-updated datetime="2026-07-30">30 de julio de 2026</time>
       </div>
     </div>
   </footer>

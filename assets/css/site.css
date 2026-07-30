@@ -135,6 +135,78 @@ nav a[aria-current="page"] {
   text-underline-offset: 5px;
 }
 
+.nav-toggle {
+  display: none;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 13px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--brand-white);
+  color: var(--brand-black);
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 800;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.nav-toggle:hover {
+  border-color: var(--brand-red);
+  background: var(--soft-red);
+}
+
+.nav-toggle:focus-visible {
+  outline: 3px solid var(--brand-red-dark-3);
+  outline-offset: 3px;
+}
+
+.nav-toggle-icon {
+  position: relative;
+  width: 18px;
+  height: 14px;
+}
+
+.nav-toggle-icon::before,
+.nav-toggle-icon::after,
+.nav-toggle-icon span {
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  content: "";
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle-icon::before {
+  top: 0;
+}
+
+.nav-toggle-icon span {
+  top: 6px;
+}
+
+.nav-toggle-icon::after {
+  top: 12px;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon span {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
 .hero-wrap {
   background: linear-gradient(180deg, var(--brand-white), var(--bg));
   border-bottom: 1px solid var(--border);
@@ -902,6 +974,73 @@ li {
   color: var(--muted);
 }
 
+.activity-card {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--brand-red);
+  border-radius: 16px;
+  background: var(--brand-white);
+}
+
+.activity-date {
+  display: grid;
+  place-items: center;
+  min-height: 112px;
+  padding: 12px;
+  border-radius: 14px;
+  background: var(--brand-black);
+  color: var(--brand-white);
+  text-align: center;
+}
+
+.activity-date span,
+.activity-date small {
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.activity-date strong {
+  color: var(--brand-white);
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.activity-card h3 {
+  margin: 12px 0 6px;
+  font-size: 1.35rem;
+}
+
+.activity-card p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.activity-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.activity-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.activity-meta strong {
+  color: var(--text);
+}
+
 .page-hero {
   padding: 54px 0 10px;
 }
@@ -1073,30 +1212,58 @@ li {
     width: min(100% - 24px, 1180px);
   }
 
+  .topbar-inner {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 12px;
+    padding: 10px 0;
+  }
+
   .brand {
     min-width: 0;
     flex: 0 0 auto;
   }
 
   .brand-logo {
-    width: 150px;
+    width: 142px;
   }
 
   nav {
     width: 100%;
     min-width: 0;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: 16px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    scrollbar-width: thin;
-    overscroll-behavior-inline: contain;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
   }
 
   nav a {
-    flex: 0 0 auto;
-    white-space: nowrap;
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    padding: 7px 10px;
+    border-radius: 9px;
+  }
+
+  nav a:hover,
+  nav a[aria-current="page"] {
+    background: var(--soft-red);
+    text-decoration: none;
+  }
+
+  .js .nav-toggle {
+    display: inline-flex;
+  }
+
+  .js nav {
+    display: none;
+  }
+
+  .js nav.is-open {
+    display: grid;
   }
 
   .section-card {
@@ -1139,6 +1306,25 @@ li {
 
   .history-members {
     grid-template-columns: 1fr;
+  }
+
+  .activity-card {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 20px;
+  }
+
+  .activity-date {
+    grid-template-columns: auto auto auto;
+    justify-content: start;
+    gap: 8px;
+    min-height: 0;
+    width: fit-content;
+    padding: 9px 13px;
+  }
+
+  .activity-date strong {
+    font-size: 1.15rem;
   }
 
   .support-banner {

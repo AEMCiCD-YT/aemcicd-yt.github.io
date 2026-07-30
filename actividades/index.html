@@ -6,12 +6,14 @@
   <meta name="description" content="Actividades académicas, comunitarias e institucionales de la AEMCiCD." />
   <title>Actividades | AEMCiCD</title>
   <link rel="stylesheet" href="../assets/css/site.css" />
+  <script src="../assets/js/site.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
   <header class="topbar"><div class="topbar-inner">
     <a class="brand" href="../" aria-label="AEMCiCD, inicio"><img class="brand-logo" src="../assets/brand/logo-aemcicd-rojo.png" alt="AEMCiCD, Asociación de Estudiantes de Matemática, Ciencias Computacionales y Ciencia de Datos" width="180" height="54" /></a>
-    <nav aria-label="Navegación principal"><a href="../">Inicio</a><a href="../nosotros/">Nosotros</a><a href="../directiva/">Directiva</a><a href="./" aria-current="page">Actividades</a><a href="../proyectos/">Proyectos</a><a href="../transparencia/">Transparencia</a><a href="../colabora/">Colabora</a><a href="../contacto/">Contacto</a></nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Abrir menú principal"><span>Menú</span><span class="nav-toggle-icon" aria-hidden="true"><span></span></span></button>
+    <nav id="site-navigation" aria-label="Navegación principal"><a href="../">Inicio</a><a href="../nosotros/">Nosotros</a><a href="../directiva/">Directiva</a><a href="./" aria-current="page">Actividades</a><a href="../proyectos/">Proyectos</a><a href="../transparencia/">Transparencia</a><a href="../colabora/">Colabora</a><a href="../contacto/">Contacto</a></nav>
   </div></header>
 
   <main id="main-content" tabindex="-1">
@@ -24,6 +26,25 @@
       <article class="content-card"><span class="tag">Transparencia</span><h2>Archivo y documentación</h2><p>Promovemos la organización de actas, resoluciones, informes y documentos para fortalecer la trazabilidad y la continuidad institucional.</p></article>
       <article class="content-card"><span class="tag">Tecnología</span><h2>Herramientas institucionales</h2><p>Desarrollamos soluciones digitales para elecciones, gobernanza, documentación y participación organizada.</p></article>
     </section>
+
+    <section class="section-card" aria-labelledby="agenda-title">
+      <div class="section-title"><div><span class="section-eyebrow">Agenda institucional</span><h2 id="agenda-title">Próxima actividad prevista</h2><p>Las fechas preliminares se distinguen de las convocatorias confirmadas.</p></div></div>
+      <article class="activity-card">
+        <time class="activity-date" datetime="2026-11-21"><span>Nov</span><strong>21</strong><small>2026</small></time>
+        <div>
+          <span class="status pending">En preparación · Fecha prevista</span>
+          <h3>Conecta IEEE YT 2026</h3>
+          <p>Proyecto conjunto de la AEMCiCD y la Rama Estudiantil IEEE Yachay Tech para conectar estudiantes, empresas y universidades.</p>
+          <div class="activity-meta">
+            <span><strong>Conecta Empresas:</strong> Hotel Ajaví</span>
+            <span><strong>Conecta Universidades:</strong> Acrópolis</span>
+          </div>
+          <a class="card-link" href="../proyectos/conecta/">Consultar planificación preliminar <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      <div class="notice">La fecha, sedes, horarios y condiciones definitivas se publicarán únicamente después de las confirmaciones y autorizaciones correspondientes.</div>
+    </section>
+
     <section class="section-card" aria-labelledby="publication-title">
       <div class="section-title"><div><h2 id="publication-title">Cómo publicaremos las actividades</h2><p>La agenda pública debe ser útil, verificable y fácil de consultar.</p></div></div>
       <div class="page-grid">
@@ -32,9 +53,14 @@
         <article class="content-card"><span class="tag">Después</span><h3>Memoria institucional</h3><p>Cuando corresponda, se organizarán evidencias, resultados y documentos públicos para conservar la continuidad.</p></article>
       </div>
     </section>
-    <section class="section-card" aria-labelledby="updates-title"><div class="section-title"><div><h2 id="updates-title">Convocatorias y novedades</h2><p>Este espacio se habilitará cuando exista un calendario institucional actualizado.</p></div></div><div class="notice">La AEMCiCD publicará convocatorias y actividades verificadas a través de sus canales oficiales.</div><div class="hero-actions"><a class="button primary" href="../contacto/">Ver canales oficiales</a></div></section>
+
+    <section class="section-card" aria-labelledby="memory-title">
+      <div class="section-title"><div><span class="section-eyebrow">Archivo público</span><h2 id="memory-title">Memoria de actividades</h2><p>Este registro reunirá las actividades concluidas y la información pública que permita conservar sus resultados.</p></div></div>
+      <div class="notice">Todavía no hay actividades finalizadas publicadas en este archivo. Las incorporaremos cuando estén verificadas sus fechas, resultados y evidencias autorizadas.</div>
+      <div class="hero-actions"><a class="button primary" href="../contacto/">Ver canales oficiales</a></div>
+    </section>
   </main>
 
-  <footer class="footer"><div class="footer-inner"><div><strong>AEMCiCD</strong><br />Asociación de Estudiantes de Matemática, Ciencias Computacionales y Ciencia de Datos.<div class="footer-links"><a href="https://www.instagram.com/asoemcic_yt_/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.facebook.com/aemcicd" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/aemcicd" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div><div>RUC: 1091799923001 · SUIOS: 0000146391<br />Última actualización: 29 de julio de 2026</div></div></footer>
+  <footer class="footer"><div class="footer-inner"><div><strong>AEMCiCD</strong><br />Asociación de Estudiantes de Matemática, Ciencias Computacionales y Ciencia de Datos.<div class="footer-links"><a href="https://www.instagram.com/asoemcic_yt_/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.facebook.com/aemcicd" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/aemcicd" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div><div>RUC: 1091799923001 · SUIOS: 0000146391<br />Última actualización: <time data-site-updated datetime="2026-07-30">30 de julio de 2026</time></div></div></footer>
 </body>
 </html>
