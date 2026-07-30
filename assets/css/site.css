@@ -100,13 +100,13 @@ main,
 .brand {
   display: flex;
   align-items: center;
-  flex: 0 1 230px;
+  flex: 0 0 180px;
   min-width: 0;
 }
 
 .brand-logo {
   display: block;
-  width: 230px;
+  width: 180px;
   max-width: 100%;
   height: auto;
 }
@@ -1075,7 +1075,7 @@ li {
 
   .brand {
     min-width: 0;
-    flex-basis: 205px;
+    flex-basis: 165px;
   }
 
   .section-card {
