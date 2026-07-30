@@ -154,6 +154,10 @@ nav a[aria-current="page"] {
   touch-action: manipulation;
 }
 
+.nav-toggle[hidden] {
+  display: none !important;
+}
+
 .nav-toggle:hover {
   border-color: var(--brand-red);
   background: var(--soft-red);

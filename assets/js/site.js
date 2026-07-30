@@ -24,6 +24,17 @@
     toggle.setAttribute("aria-label", isOpen ? "Cerrar menú principal" : "Abrir menú principal");
   };
 
+  const mobileMedia = window.matchMedia("(max-width: 640px)");
+  const syncMenuMode = (event) => {
+    toggle.hidden = !event.matches;
+
+    if (!event.matches) {
+      setMenuState(false);
+    }
+  };
+
+  syncMenuMode(mobileMedia);
+
   toggle.addEventListener("click", () => {
     setMenuState(toggle.getAttribute("aria-expanded") !== "true");
   });
@@ -41,16 +52,9 @@
     }
   });
 
-  const desktopMedia = window.matchMedia("(min-width: 641px)");
-  const resetDesktopMenu = (event) => {
-    if (event.matches) {
-      setMenuState(false);
-    }
-  };
-
-  if (typeof desktopMedia.addEventListener === "function") {
-    desktopMedia.addEventListener("change", resetDesktopMenu);
+  if (typeof mobileMedia.addEventListener === "function") {
+    mobileMedia.addEventListener("change", syncMenuMode);
   } else {
-    desktopMedia.addListener(resetDesktopMenu);
+    mobileMedia.addListener(syncMenuMode);
   }
 })();
