@@ -100,39 +100,15 @@ main,
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  min-width: 240px;
+  flex: 0 1 230px;
+  min-width: 0;
 }
 
-.brand-mark {
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-items: center;
-  flex: 0 0 auto;
-  border: 1px solid var(--brand-red-dark-1);
-  border-radius: 15px;
-  background: var(--brand-red);
-  color: var(--brand-black);
-  font-weight: 900;
-  letter-spacing: -1px;
-  box-shadow: 0 10px 24px rgba(163, 44, 38, 0.2);
-}
-
-.brand-text strong,
-.brand-text span {
+.brand-logo {
   display: block;
-}
-
-.brand-text strong {
-  color: var(--navy);
-  font-size: 1rem;
-}
-
-.brand-text span {
-  color: var(--muted);
-  font-size: 0.78rem;
-  line-height: 1.3;
+  width: 230px;
+  max-width: 100%;
+  height: auto;
 }
 
 nav {
@@ -1099,6 +1075,7 @@ li {
 
   .brand {
     min-width: 0;
+    flex-basis: 205px;
   }
 
   .section-card {
