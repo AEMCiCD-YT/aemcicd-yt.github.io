@@ -6,6 +6,10 @@ raw/
 borradores/
 drafts/
 
+# Documentos privados de planificación y contexto del sitio
+PLAN_RENOVACION_SITIO_AEMCICD.md
+CONTEXTO_SITIO_AEMCICD.md
+
 # Documentos editables o fuentes no públicas
 *.docx
 *.pages
