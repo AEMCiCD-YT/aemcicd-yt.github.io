@@ -1433,8 +1433,9 @@ li {
   font-variant-numeric: tabular-nums;
 }
 
-.campaign-figures small {
-  display: block;
+.campaign-figures dd.campaign-figure-note {
+  margin: 0;
+  font-weight: 400;
   color: var(--muted);
   font-size: 0.8rem;
 }

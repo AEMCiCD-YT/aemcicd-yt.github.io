@@ -59,7 +59,7 @@
   }
 
   function figure(label, value, note) {
-    return element("div", {}, [element("dt", { text: label }), element("dd", { text: usd(value) }), note ? element("small", { text: note }) : null]);
+    return element("div", {}, [element("dt", { text: label }), element("dd", { text: usd(value) }), note ? element("dd", { class: "campaign-figure-note", text: note }) : null]);
   }
 
   function render(container, summary, detailUrl) {
