@@ -9,6 +9,6 @@ window.AEMCICD_CAMPAIGNS = {
   platformApiUrl: "",
   braillelab: {
     slug: "braillelab-ecuador-2027",
-    site: "https://aemcicd-yt.github.io/braillelab-web",
+    site: "https://braillelab.org",
   },
 };
