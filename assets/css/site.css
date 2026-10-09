@@ -100,18 +100,39 @@ main,
 .brand {
   display: flex;
   align-items: center;
-  flex: 0 0 180px;
+  gap: 10px;
+  flex: 0 0 auto;
   min-width: 0;
+  color: var(--brand-black);
+}
+
+.brand:hover {
+  text-decoration: none;
 }
 
 .brand-logo {
   display: block;
-  width: 180px;
-  max-width: 100%;
-  height: auto;
+  width: auto;
+  height: 58px;
 }
 
-nav {
+.brand-mark,
+.brand-short {
+  display: none;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+}
+
+.brand-short {
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+#site-navigation {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -119,17 +140,17 @@ nav {
   font-size: 0.9rem;
 }
 
-nav a {
+#site-navigation a {
   color: var(--muted);
   font-weight: 700;
 }
 
-nav a:hover,
-nav a[aria-current="page"] {
+#site-navigation a:hover,
+#site-navigation a[aria-current="page"] {
   color: var(--brand-red-dark-3);
 }
 
-nav a[aria-current="page"] {
+#site-navigation a[aria-current="page"] {
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 5px;
@@ -212,8 +233,28 @@ nav a[aria-current="page"] {
 }
 
 .hero-wrap {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(180deg, var(--brand-white), var(--bg));
   border-bottom: 1px solid var(--border);
+}
+
+/* Isotipo como marca de agua: refuerza la identidad sin competir con el contenido */
+.hero-wrap::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -140px;
+  width: 640px;
+  height: 640px;
+  background: url("../brand/aemcicd-isotipo-color.svg") center / contain no-repeat;
+  opacity: 0.07;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.hero-wrap > .hero {
+  position: relative;
 }
 
 .hero {
@@ -254,6 +295,16 @@ h1 {
   line-height: 1.02;
   letter-spacing: -0.06em;
   overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 h2,
@@ -591,6 +642,7 @@ section {
   max-width: 245px;
   color: var(--muted);
   font-size: 0.9rem;
+  font-weight: 500;
   line-height: 1.45;
 }
 
@@ -1152,32 +1204,118 @@ li {
 }
 
 .footer {
-  padding: 38px 0;
+  padding: 56px 0 0;
+  border-top: 4px solid var(--brand-red);
   background: var(--brand-black);
-  color: #E5E5E5;
+  color: #D4D4D4;
+}
+
+.footer-inner,
+.footer-bottom {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
 }
 
 .footer-inner {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 36px;
+  padding-bottom: 40px;
   font-size: 0.92rem;
 }
 
-.footer strong,
-.footer a {
+.footer-logo {
+  display: block;
+  width: 260px;
+  max-width: 100%;
+  height: auto;
+}
+
+.footer-brand p {
+  max-width: 340px;
+  margin: 20px 0 0;
+}
+
+.footer-heading {
+  margin: 0 0 12px;
   color: var(--brand-white);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.footer-heading::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin-top: 8px;
+  background: var(--brand-red);
+}
+
+.footer-nav ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-nav li {
+  margin: 0;
+}
+
+.footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  color: var(--brand-white);
+  font-weight: 600;
+}
+
+.footer a:hover {
+  color: var(--brand-red);
+  text-decoration: none;
+}
+
+.footer a:focus-visible {
+  outline-color: var(--brand-red);
+}
+
+.footer-contact > a {
+  font-weight: 800;
+  overflow-wrap: anywhere;
 }
 
 .footer-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 18px;
-  margin-top: 12px;
+  gap: 4px 18px;
+  margin-top: 8px;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 20px;
+  padding: 18px 0 22px;
+  border-top: 1px solid #2A2A2A;
+  color: #A3A3A3;
+  font-size: 0.82rem;
 }
 
 @media (max-width: 960px) {
+  .hero-wrap::before {
+    top: 24px;
+    right: -180px;
+    width: 420px;
+    height: 420px;
+    transform: none;
+  }
+
   .hero {
     grid-template-columns: 1fr;
     padding-top: 54px;
@@ -1197,14 +1335,59 @@ li {
     grid-template-columns: 1fr;
   }
 
-  .topbar-inner {
-    align-items: flex-start;
-    flex-direction: column;
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
   }
 
-  nav {
-    justify-content: flex-start;
-    gap: 12px;
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  /* Menú plegable: ocho enlaces no caben junto al logo por debajo de este ancho */
+  .topbar-inner {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    padding: 10px 0;
+  }
+
+  .brand-logo {
+    height: 50px;
+  }
+
+  #site-navigation {
+    width: 100%;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+    padding: 10px 0 4px;
+    border-top: 1px solid var(--border);
+  }
+
+  #site-navigation a {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    padding: 7px 10px;
+    border-radius: 9px;
+  }
+
+  #site-navigation a:hover,
+  #site-navigation a[aria-current="page"] {
+    background: var(--soft-red);
+    text-decoration: none;
+  }
+
+  .js .nav-toggle {
+    display: inline-flex;
+  }
+
+  .js #site-navigation {
+    display: none;
+  }
+
+  .js #site-navigation.is-open {
+    display: grid;
   }
 }
 
@@ -1216,62 +1399,38 @@ li {
     width: min(100% - 24px, 1180px);
   }
 
-  .topbar-inner {
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 8px 12px;
-    padding: 10px 0;
+  .footer-bottom {
+    width: min(100% - 24px, 1180px);
   }
 
-  .brand {
-    min-width: 0;
-    flex: 0 0 auto;
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 
   .brand-logo {
-    width: 142px;
-  }
-
-  nav {
-    width: 100%;
-    min-width: 0;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 4px;
-    padding-top: 10px;
-    border-top: 1px solid var(--border);
-  }
-
-  nav a {
-    display: flex;
-    min-height: 44px;
-    align-items: center;
-    padding: 7px 10px;
-    border-radius: 9px;
-  }
-
-  nav a:hover,
-  nav a[aria-current="page"] {
-    background: var(--soft-red);
-    text-decoration: none;
-  }
-
-  .js .nav-toggle {
-    display: inline-flex;
-  }
-
-  .js nav {
     display: none;
   }
 
-  .js nav.is-open {
-    display: grid;
+  .brand-mark {
+    display: block;
+  }
+
+  .brand-short {
+    display: inline;
+  }
+
+  #site-navigation {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .section-card {
     padding: 22px;
+  }
+
+  .section-title {
+    flex-wrap: wrap;
+    align-items: flex-start;
   }
 
   .hero {
