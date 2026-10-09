@@ -2,8 +2,8 @@
   document.documentElement.classList.add("js");
 
   const siteUpdate = {
-    iso: "2026-07-30",
-    label: "30 de julio de 2026",
+    iso: "2026-10-09",
+    label: "9 de octubre de 2026",
   };
 
   document.querySelectorAll("[data-site-updated]").forEach((element) => {

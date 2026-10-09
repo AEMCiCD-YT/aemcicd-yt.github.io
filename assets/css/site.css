@@ -1367,3 +1367,74 @@ li {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Campañas (BrailleLab Ecuador 2027) — resumen desde la API pública de AEMCiCD Platform */
+.campaign-card {
+  border-left: 6px solid var(--brand-blue);
+}
+
+.campaign-summary {
+  margin-top: 8px;
+}
+
+.campaign-summary .notice {
+  border-color: var(--brand-blue);
+  background: var(--soft-blue);
+  color: var(--text);
+}
+
+.campaign-summary .notice.campaign-alert {
+  border-color: var(--brand-red-dark-1);
+  background: var(--soft-red);
+}
+
+.campaign-summary .notice p {
+  margin: 0 0 12px;
+}
+
+.campaign-summary a,
+.campaign-meta a,
+.content-card p a {
+  color: var(--brand-blue);
+  font-weight: 800;
+}
+
+.campaign-meta {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.campaign-figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+  margin: 16px 0 0;
+}
+
+.campaign-figures div {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card);
+}
+
+.campaign-figures dt {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.campaign-figures dd {
+  margin: 6px 0 4px;
+  color: var(--text);
+  font-size: 1.45rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+
+.campaign-figures small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
