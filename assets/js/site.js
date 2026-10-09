@@ -24,7 +24,7 @@
     toggle.setAttribute("aria-label", isOpen ? "Cerrar menú principal" : "Abrir menú principal");
   };
 
-  const mobileMedia = window.matchMedia("(max-width: 640px)");
+  const mobileMedia = window.matchMedia("(max-width: 960px)");
   const syncMenuMode = (event) => {
     toggle.hidden = !event.matches;
 
