@@ -6,7 +6,7 @@
 
 **Representación estudiantil · Comunidad académica · Gobernanza digital · Proyectos tecnológicos**
 
-[![Website](https://img.shields.io/badge/website-aemcicd--yt.github.io-red?style=for-the-badge)](https://aemcicd-yt.github.io/)
+[![Website](https://img.shields.io/badge/website-aemcicd.org-red?style=for-the-badge)](https://aemcicd.org/)
 [![Votia](https://img.shields.io/badge/project-Votia-0f2f5f?style=for-the-badge)](https://votia.ec/)
 [![GitHub Org](https://img.shields.io/badge/github-AEMCiCD--YT-black?style=for-the-badge&logo=github)](https://github.com/AEMCiCD-YT)
 
@@ -121,7 +121,7 @@ No almacenamos en repositorios públicos información sensible como padrones, cr
 
 ## Contacto
 
-- Sitio institucional: [https://aemcicd-yt.github.io](https://aemcicd-yt.github.io/)
+- Sitio institucional: [https://aemcicd.org](https://aemcicd.org/)
 - Correo institucional: [asoemc@yachaytech.edu.ec](mailto:asoemc@yachaytech.edu.ec)
 - Ubicación referencial: Universidad Yachay Tech, Urcuquí, Imbabura, Ecuador.
 
