@@ -9,7 +9,7 @@
   const GOOGLE_ADS_ID = "AW-18480905412";
 
   const conversions = {
-    apoyarBraillelab: "",
+    apoyarBraillelab: "AW-18480905412/CwYnCK3HkpgdEMT5sOxE",
     reportarTransferencia: "",
     participarBrailletech: "",
     contactoCorreo: "",
