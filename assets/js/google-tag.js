@@ -31,7 +31,8 @@
     const href = link.getAttribute("href") || "";
 
     if (href.startsWith("mailto:")) {
-      return conversions.contactoCorreo;
+      // Una solicitud de privacidad no es un contacto generado por la publicidad.
+      return window.location.pathname.startsWith("/privacidad") ? "" : conversions.contactoCorreo;
     }
 
     let url;
