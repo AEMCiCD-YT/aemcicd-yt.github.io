@@ -10,9 +10,9 @@
 
   const conversions = {
     apoyarBraillelab: "AW-18480905412/CwYnCK3HkpgdEMT5sOxE",
-    reportarTransferencia: "",
-    participarBrailletech: "",
-    contactoCorreo: "",
+    reportarTransferencia: "AW-18480905412/284iCKjIkpgdEMT5sOxE",
+    participarBrailletech: "AW-18480905412/dbd7CKvIkpgdEMT5sOxE",
+    contactoCorreo: "AW-18480905412/dRBBCK7IkpgdEMT5sOxE",
   };
 
   window.dataLayer = window.dataLayer || [];
