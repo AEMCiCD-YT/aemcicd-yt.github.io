@@ -1,15 +1,7 @@
 (() => {
   document.documentElement.classList.add("js");
 
-  const siteUpdate = {
-    iso: "2026-10-09",
-    label: "9 de octubre de 2026",
-  };
-
-  document.querySelectorAll("[data-site-updated]").forEach((element) => {
-    element.setAttribute("datetime", siteUpdate.iso);
-    element.textContent = siteUpdate.label;
-  });
+  // Cada página conserva en su HTML la fecha de su última revisión editorial.
 
   const toggle = document.querySelector(".nav-toggle");
   const navigation = document.querySelector("#site-navigation");
