@@ -11,12 +11,34 @@
  *   el mismo corte y versión.
  */
 (() => {
+  const isEnglish = document.documentElement.lang === "en";
+  const dictionary = {
+    "No disponible": "Not available",
+    "Recibido y verificado (neto)": "Received and verified (net)",
+    "Gastado (pagos verificados)": "Spent (verified payments)",
+    "Comprometido pendiente": "Outstanding commitments",
+    "No se suma de nuevo a lo pagado.": "Not added again to amounts already paid.",
+    "Aportes en especie": "In-kind contributions",
+    "Costo cubierto con bienes; no es efectivo.": "Costs covered by goods; not cash.",
+    "Necesidad pendiente": "Remaining need",
+    "Todavía no hay movimientos verificados: las cifras en cero son reales.": "There are no verified transactions yet: zero figures are actual values.",
+    "La campaña no publica cifras de avance por ahora.": "The campaign is not publishing progress figures at this time.",
+    "Las mismas cifras se muestran en BrailleLab. ": "The same figures are shown on BrailleLab. ",
+    "Ver el detalle de ingresos y gastos": "View income and expense details",
+    "Las cifras en vivo todavía no están conectadas a la plataforma de la asociación. No mostramos montos hasta que lo estén.": "Live figures are not connected to the association's platform yet. Amounts are not displayed until they are connected.",
+    "Cargando el resumen de la campaña…": "Loading the campaign summary…",
+    "La campaña aún no publica información financiera.": "The campaign is not publishing financial information yet.",
+    "Reintentar": "Retry",
+    "No pudimos cargar el resumen en este momento. No mostramos montos para no dar datos incorrectos.": "We could not load the summary at this time. Amounts are withheld to avoid showing incorrect data.",
+  };
+  const t = (text) => isEnglish ? (dictionary[text] || text) : text;
   const config = window.AEMCICD_CAMPAIGNS || {};
   const apiBase = String(config.platformApiUrl || "").replace(/\/$/, "");
-  const money = new Intl.NumberFormat("es-EC", { style: "currency", currency: "USD" });
-  const usd = (amount) => (amount === null || amount === undefined ? "No disponible" : money.format(Number(amount)));
+  const locale = isEnglish ? "en-US" : "es-EC";
+  const money = new Intl.NumberFormat(locale, { style: "currency", currency: "USD" });
+  const usd = (amount) => (amount === null || amount === undefined ? t("No disponible") : money.format(Number(amount)));
   const dateTime = (iso) =>
-    new Intl.DateTimeFormat("es-EC", { dateStyle: "long", timeStyle: "short", timeZone: "America/Guayaquil" }).format(new Date(iso));
+    new Intl.DateTimeFormat(locale, { dateStyle: "long", timeStyle: "short", timeZone: "America/Guayaquil" }).format(new Date(iso));
 
   /** DTO mínimo: lo único que este sitio necesita de la proyección pública. */
   function toSummary(body) {
@@ -47,10 +69,10 @@
   function element(tag, attributes = {}, children = []) {
     const node = document.createElement(tag);
     for (const [key, value] of Object.entries(attributes)) {
-      if (key === "text") node.textContent = value;
+      if (key === "text") node.textContent = t(value);
       else node.setAttribute(key, value);
     }
-    for (const child of children) if (child) node.append(child);
+    for (const child of children) if (child) node.append(typeof child === "string" ? t(child) : child);
     return node;
   }
 
@@ -63,24 +85,33 @@
   }
 
   function render(container, summary, detailUrl) {
-    const statusLabel = { active: "activa", paused: "pausada", closed: "cerrada" }[summary.status] || summary.status;
+    const statuses = isEnglish
+      ? { active: "active", paused: "paused", closed: "closed" }
+      : { active: "activa", paused: "pausada", closed: "cerrada" };
+    const statusLabel = statuses[summary.status] || summary.status;
     const parts = [
       element("p", {
         class: "campaign-meta",
-        text: `Corte del ${dateTime(summary.asOf)} · versión ${summary.version} · campaña ${statusLabel}.`,
+        text: isEnglish
+          ? `As of ${dateTime(summary.asOf)} · version ${summary.version} · campaign ${statusLabel}.`
+          : `Corte del ${dateTime(summary.asOf)} · versión ${summary.version} · campaña ${statusLabel}.`,
       }),
     ];
     if (summary.freshness === "stale") {
-      parts.push(notice(`Datos desactualizados: se muestra el último corte publicado (${dateTime(summary.asOf)}).`, true));
+      parts.push(notice(isEnglish
+        ? `Outdated data: showing the latest published update (${dateTime(summary.asOf)}).`
+        : `Datos desactualizados: se muestra el último corte publicado (${dateTime(summary.asOf)}).`, true));
     }
     if (summary.published) {
       parts.push(
         element("dl", { class: "campaign-figures" }, [
-          figure("Recibido y verificado (neto)", summary.netReceived, `Bruto ${usd(summary.grossIncome)} · devoluciones ${usd(summary.refunds)}`),
+          figure("Recibido y verificado (neto)", summary.netReceived, isEnglish
+            ? `Gross ${usd(summary.grossIncome)} · refunds ${usd(summary.refunds)}`
+            : `Bruto ${usd(summary.grossIncome)} · devoluciones ${usd(summary.refunds)}`),
           figure("Gastado (pagos verificados)", summary.paid),
           figure("Comprometido pendiente", summary.committed, "No se suma de nuevo a lo pagado."),
           figure("Aportes en especie", summary.inKind, "Costo cubierto con bienes; no es efectivo."),
-          figure("Necesidad pendiente", summary.pendingNeed, `Meta ${usd(summary.goal)}`),
+          figure("Necesidad pendiente", summary.pendingNeed, `${isEnglish ? "Target" : "Meta"} ${usd(summary.goal)}`),
         ]),
       );
       if (summary.empty) parts.push(notice("Todavía no hay movimientos verificados: las cifras en cero son reales."));
