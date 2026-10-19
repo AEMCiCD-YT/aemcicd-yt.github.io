@@ -835,10 +835,10 @@ section {
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
 }
 
-.mini-card strong,
-.project-card strong,
-.doc-card strong,
-.content-card strong {
+.mini-card > strong,
+.project-card > strong,
+.doc-card > strong,
+.content-card > strong {
   display: block;
   margin-bottom: 8px;
   color: var(--navy);
@@ -854,6 +854,20 @@ section {
   margin: 0;
   color: var(--muted);
   font-size: 0.95rem;
+}
+
+.mini-card p + p,
+.project-card p + p,
+.doc-card p + p,
+.timeline-card p + p,
+.person-card p + p,
+.content-card p + p {
+  margin-top: 0.85rem;
+}
+
+.content-card p strong {
+  font-size: inherit;
+  color: var(--text);
 }
 
 .tag,
@@ -1138,10 +1152,15 @@ li {
 
 .page-hero {
   padding: 54px 0 10px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .page-hero h1 {
   margin-bottom: 14px;
+  max-width: 22ch;
+  white-space: normal;
+  overflow-wrap: anywhere;
   font-size: clamp(2.4rem, 5vw, 4.4rem);
   line-height: 1.05;
   letter-spacing: -0.055em;
@@ -1170,6 +1189,11 @@ li {
   grid-template-columns: repeat(2, 1fr);
   gap: 18px;
   margin-top: 24px;
+}
+
+.page-grid > *,
+.contact-grid > * {
+  min-width: 0;
 }
 
 .content-card h2,
