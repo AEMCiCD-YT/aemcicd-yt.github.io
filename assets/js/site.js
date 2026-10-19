@@ -3,6 +3,14 @@
 
   // Cada página conserva en su HTML la fecha de su última revisión editorial.
 
+  const isEnglish = document.documentElement.lang === "en";
+  const languageSwitch = document.querySelector(".language-switch");
+  if (languageSwitch) {
+    languageSwitch.addEventListener("click", () => {
+      languageSwitch.hash = window.location.hash;
+    });
+  }
+
   const toggle = document.querySelector(".nav-toggle");
   const navigation = document.querySelector("#site-navigation");
 
@@ -13,7 +21,9 @@
   const setMenuState = (isOpen) => {
     navigation.classList.toggle("is-open", isOpen);
     toggle.setAttribute("aria-expanded", String(isOpen));
-    toggle.setAttribute("aria-label", isOpen ? "Cerrar menú principal" : "Abrir menú principal");
+    toggle.setAttribute("aria-label", isEnglish
+      ? (isOpen ? "Close main menu" : "Open main menu")
+      : (isOpen ? "Cerrar menú principal" : "Abrir menú principal"));
   };
 
   const mobileMedia = window.matchMedia("(max-width: 960px)");

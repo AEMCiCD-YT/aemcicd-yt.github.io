@@ -32,7 +32,7 @@
 
     if (href.startsWith("mailto:")) {
       // Una solicitud de privacidad no es un contacto generado por la publicidad.
-      return window.location.pathname.startsWith("/privacidad") ? "" : conversions.contactoCorreo;
+      return /^\/(?:privacidad|en\/privacy)(?:\/|$)/.test(window.location.pathname) ? "" : conversions.contactoCorreo;
     }
 
     let url;
