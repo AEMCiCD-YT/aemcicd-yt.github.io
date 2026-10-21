@@ -10,7 +10,6 @@
 
   const conversions = {
     apoyarBraillelab: "AW-18480905412/CwYnCK3HkpgdEMT5sOxE",
-    reportarTransferencia: "AW-18480905412/284iCKjIkpgdEMT5sOxE",
     participarBrailletech: "AW-18480905412/dbd7CKvIkpgdEMT5sOxE",
     contactoCorreo: "AW-18480905412/dRBBCK7IkpgdEMT5sOxE",
   };
@@ -20,6 +19,7 @@
     window.dataLayer.push(arguments);
   };
   window.gtag("js", new Date());
+  window.gtag("set", "linker", { domains: ["aemcicd.org", "braillelab.org"] });
   window.gtag("config", GOOGLE_ADS_ID);
 
   const script = document.createElement("script");
@@ -47,7 +47,8 @@
     }
 
     if (url.pathname.startsWith("/alianzas")) {
-      return url.hash === "#aviso" ? conversions.reportarTransferencia : conversions.apoyarBraillelab;
+      // El aviso recibido se mide en BrailleLab, tras la confirmación del servidor.
+      return url.hash === "#aviso" ? "" : conversions.apoyarBraillelab;
     }
 
     if (/^\/(participar|reto|cronograma)(\/|$)/.test(url.pathname)) {
@@ -74,3 +75,4 @@
     }
   });
 })();
+
