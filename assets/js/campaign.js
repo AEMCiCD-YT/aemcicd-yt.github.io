@@ -131,7 +131,7 @@
   async function load(container) {
     const campaign = config[container.dataset.campaignSummary];
     if (!campaign) return;
-    const detailUrl = `${campaign.site}/transparencia/`;
+    const detailUrl = `${campaign.site}${isEnglish ? "/en/transparency/" : "/transparencia/"}`;
     container.setAttribute("aria-busy", "true");
     if (!apiBase) {
       container.replaceChildren(

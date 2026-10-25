@@ -36,6 +36,19 @@ def spanish_url(path):
 
 PATHS = {spanish_url(p): en for p, en in ROUTES.items()}
 
+# braillelab.org publica su versión en inglés bajo /en con rutas traducidas.
+BRAILLELAB_PATHS = {
+    '/': '/en/',
+    '/reto/': '/en/challenge/',
+    '/participar/': '/en/participate/',
+    '/cronograma/': '/en/schedule/',
+    '/recursos/': '/en/resources/',
+    '/braillelab/': '/en/braillelab/',
+    '/alianzas/': '/en/support/',
+    '/transparencia/': '/en/transparency/',
+    '/privacidad/': '/en/privacy/',
+}
+
 class Translator(HTMLParser):
     def __init__(self, path, translations, inventory=False):
         super().__init__(convert_charrefs=False)
@@ -69,6 +82,8 @@ class Translator(HTMLParser):
         if value.startswith('#') or value.startswith(('mailto:', 'tel:', 'data:')):
             return value
         parsed = urlsplit(urljoin(ORIGIN + spanish_url(self.path), value))
+        if parsed.hostname == 'braillelab.org' and parsed.path in BRAILLELAB_PATHS:
+            return urlunsplit(('https', 'braillelab.org', BRAILLELAB_PATHS[parsed.path], parsed.query, parsed.fragment))
         if parsed.hostname != 'aemcicd.org':
             # Google's linked data-use policy has its own English version.
             if parsed.hostname == 'policies.google.com':

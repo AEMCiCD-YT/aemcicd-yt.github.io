@@ -33,3 +33,13 @@ test("support navigation keeps its separate conversion and linker precedes confi
   assert.ok(linkerIndex >= 0 && linkerIndex < configIndex);
   assert.deepEqual(Array.from(app.events[linkerIndex][2].domains), ["aemcicd.org", "braillelab.org"]);
 });
+
+test("English BrailleLab pages record the same conversions as the Spanish ones", () => {
+  const app = setup();
+  app.click("https://braillelab.org/en/support/#aviso");
+  app.click("https://braillelab.org/en/support/");
+  app.click("https://braillelab.org/en/challenge/");
+  app.click("https://braillelab.org/en/transparency/");
+  const sendTo = app.events.filter(([name]) => name === "event").map(([, , params]) => params.send_to);
+  assert.deepEqual(sendTo, ["AW-18480905412/CwYnCK3HkpgdEMT5sOxE", "AW-18480905412/dbd7CKvIkpgdEMT5sOxE"]);
+});

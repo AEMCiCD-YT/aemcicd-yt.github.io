@@ -46,12 +46,13 @@
       return "";
     }
 
-    if (url.pathname.startsWith("/alianzas")) {
+    // braillelab.org publica la versión en inglés bajo /en con rutas traducidas.
+    if (/^\/(?:alianzas|en\/support)(?:\/|$)/.test(url.pathname)) {
       // El aviso recibido se mide en BrailleLab, tras la confirmación del servidor.
       return url.hash === "#aviso" ? "" : conversions.apoyarBraillelab;
     }
 
-    if (/^\/(participar|reto|cronograma)(\/|$)/.test(url.pathname)) {
+    if (/^\/(?:participar|reto|cronograma|en\/(?:participate|challenge|schedule))(?:\/|$)/.test(url.pathname)) {
       return conversions.participarBrailletech;
     }
 
